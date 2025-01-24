@@ -14,7 +14,7 @@ export default function EquiposPage() {
           <Image
             src="/logo.png"
             alt="SwiftStake Logo"
-            width={40}
+            width={150}
             height={40}
             className="rounded-full"
           />
