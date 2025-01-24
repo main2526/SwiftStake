@@ -23,8 +23,9 @@ export default function Page() {
       setTimeLeft(parseInt(storedTime, 10));
     } else {
       // Inicializar el contador en 24 horas (en segundos)
-      setTimeLeft(24 * 60 * 60);
-      localStorage.setItem('countdown', 24 * 60 * 60);
+      const initialTime = 24 * 60 * 60;
+      setTimeLeft(initialTime);
+      localStorage.setItem('countdown', String(initialTime));
     }
 
     // Configurar el temporizador
@@ -32,10 +33,10 @@ export default function Page() {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
           clearInterval(interval);
-          localStorage.setItem('countdown', 24 * 60 * 60); // Reinicia el contador
+          localStorage.setItem('countdown', String(24 * 60 * 60)); // Reinicia el contador
           return 24 * 60 * 60; // Reiniciar a 24 horas
         }
-        localStorage.setItem('countdown', prevTime - 1);
+        localStorage.setItem('countdown', String(prevTime - 1));
         return prevTime - 1;
       });
     }, 1000);
@@ -45,7 +46,7 @@ export default function Page() {
   }, []);
 
   // Formatear el tiempo restante a horas, minutos y segundos
-  const formatTime = (seconds) => {
+  const formatTime = (seconds: number) => {
     const hrs = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
