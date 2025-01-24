@@ -12,13 +12,12 @@ export default function EquiposPage() {
       <header className="bg-white p-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-24%20123736-FYGyLXMZ7fNBROc1b68wiqdEiNhSVZ.png"
-            alt="ATB Logo"
+            src="/logo.png"
+            alt="SwiftStake Logo"
             width={40}
             height={40}
             className="rounded-full"
           />
-          <span className="text-xl font-bold">ATB</span>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1 bg-white rounded-full px-4 py-1 shadow">
