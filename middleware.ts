@@ -1,6 +1,6 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware((auth, req) => {
+export default clerkMiddleware(() => {
   console.log("Middleware funcionando correctamente.");
 });
 
