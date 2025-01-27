@@ -1,25 +1,39 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Earn EasyMoney",
+  title: "SwiftStake",
   description: "Sports betting and events platform",
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
+    <ClerkProvider>
     <html lang="en">
-      <body className={`${inter.className} overflow-hidden`} >
-        <div className="max-w-md mx-auto min-h-screen bg-gray-50 overflow-auto max-h-96">{children}</div>
+      <body className={`${inter.className} overflow-hidden flex items-center justify-center min-h-screen`}>
+         <SignedOut>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        <div className="w-full max-w-md max-h-[50rem] bg-gray-50 shadow-lg rounded-lg overflow-auto ">
+          {children}
+        </div>
       </body>
     </html>
-  )
+  </ClerkProvider>
+  );
 }
-

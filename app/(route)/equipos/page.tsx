@@ -1,11 +1,15 @@
+'use client'
 import { Card } from "@/components/ui/card"
 import { Calendar } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import BottomNavigation from "@/components/bottom-navigation"
 import { Button } from "@/components/ui/button"
+import { useUser } from "@clerk/nextjs"
 
 export default function EquiposPage() {
+  const { user } = useUser()
+
   return (
     <div className="min-h-screen bg-gray-50 pb-16">
       {/* Header */}
@@ -40,7 +44,9 @@ export default function EquiposPage() {
         <Card className="p-4">
           <div className="flex justify-between items-start mb-4">
             <div>
-              <h2 className="font-medium">Hello! Fredd09</h2>
+              <h2 className="font-medium">
+                Hello! {user ? user.firstName : "Guest"}
+              </h2>
               <p className="text-sm text-gray-500">Team Leader</p>
             </div>
             <span className="text-[#40E0D0]">contrato de agencia</span>
@@ -123,4 +129,3 @@ export default function EquiposPage() {
     </div>
   )
 }
-
