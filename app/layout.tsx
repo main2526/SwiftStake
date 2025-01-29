@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Onest } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
 
-const inter = Inter({ subsets: ["latin"] });
+const onest = Onest({ subsets: ["latin"] ,  weight : ['400']});
 
 export const metadata: Metadata = {
   title: "SwiftStake",
@@ -19,11 +19,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${inter.className} overflow-hidden flex items-center justify-center min-h-screen`}
+          className={`${onest.className} overflow-hidden flex items-center h-screen justify-center `}
         >
           <SignedOut></SignedOut>
           <SignedIn></SignedIn>
-          <div className="w-full max-w-md max-h-[50rem] bg-gray-50 shadow-lg rounded-lg overflow-auto ">
+          <div className="w-full max-w-md max-h-[40rem] bg-gray-50 shadow-lg rounded-lg overflow-y-scroll  ">
             {children}
           </div>
         </body>

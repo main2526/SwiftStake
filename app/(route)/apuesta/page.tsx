@@ -13,7 +13,7 @@ export default function MiApuestaPage() {
         <div className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="ATB Logo"
+            alt="Swift Logo"
             width={150}
             height={40}
             className="rounded-full"
@@ -80,10 +80,10 @@ export default function MiApuestaPage() {
             </span>
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-gray-500 ">
             <span>Número de apuesta</span>
-            <span className="text-[#40E0D0]">#202501171425481619S</span>
-            <Copy className="w-4 h-4" />
+            <span className="text-[#40E0D0] ">#202501171425481619S</span>
+            <Copy className="w-4 h-4 mx-3" />
           </div>
 
           <div>
@@ -138,7 +138,7 @@ export default function MiApuestaPage() {
               <span className="text-[#40E0D0]">#202501161512478113S</span>
               <Copy className="w-4 h-4" />
             </div>
-            <span className="text-red-500">perder</span>
+            <span className="text-red-500 mx-2">perder</span>
           </div>
 
           <div>
