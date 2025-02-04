@@ -95,7 +95,7 @@ export default function Page() {
               className="bg-red-500 hover:bg-red-600 text-white text-xs"
               onClick={() => signOut()}
             >
-              CERRAR SESIÓN X
+              CERRAR SESIÓN 
             </Button>
           </SignedIn>
         </div>
