@@ -1,51 +1,66 @@
 "use client";
+import React from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
+import { Onest } from "next/font/google";
 
-export default function PayPalPage() {
-  const router = useRouter();
-  const [paymentCompleted, setPaymentCompleted] = useState(false);
+const Fonts = Onest({ subsets: ["latin"], weight: "400" });
 
-  const clientId = "AWnU2vMsWJunheeBu-bX9ulV9ZCm9YGupyK24El1BV2pbgzSuYGN7dyt9aURl42DBwNbFbzdQT7KGy-R"; // Reemplaza este valor con tu propio clientId
-
+export default function Payment() {
   return (
-    <PayPalScriptProvider options={{ clientId }}>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
-        <h1 className="text-xl font-bold mb-4">Pago con PayPal</h1>
-        <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg text-center">
-          {!paymentCompleted ? (
-            <PayPalButtons
-              style={{ layout: "vertical" }}
-              createOrder={(data, actions) => {
-                return actions.order.create({
-                  purchase_units: [
-                    {
-                      amount: {
-                        value: "9.99", // Monto de la apuesta
+    <>
+      <SignedIn>
+        <PayPalScriptProvider
+          options={{
+            clientId:
+              "AecLz0_OTn23pVPyAX8mTO85aMT8GddGMn-Ga0IFVoFG_p6rrGG6TJ35MNIl4kWPFk0tRNdpG7Qvd7Ef",
+          }}
+        >
+          <div className="flex justify-center items-center h-screen bg-gray-100">
+            <div className="bg-white p-10 shadow-2xl rounded-lg">
+              <h2
+                className={`${Fonts.className} text-2xl bold text-center font-semibold mb-4 shadow-sm`}
+              >
+                Realiza tu pago
+              </h2>
+              <PayPalButtons
+                style={{ layout: "vertical", color: "gold" }}
+                createOrder={(data, actions) => {
+                  return actions.order.create({
+                    intent: "CAPTURE", // Agregado intent
+                    purchase_units: [
+                      {
+                        amount: {
+                          currency_code: "USD",
+                          value: "9.99", // Monto a cobrar
+                        },
                       },
-                    },
-                  ],
-                });
-              }}
-              onApprove={(data, actions) => {
-                return actions.order.capture().then((details) => {
-                  alert(`Pago completado por ${details.payer.name.given_name}`);
-                  setPaymentCompleted(true);
-                });
-              }}
-            />
-          ) : (
-            <div>
-              <p className="text-green-500 font-bold">Pago exitoso 🎉</p>
-              <Button className="mt-4" onClick={() => router.push("/")}>
-                Volver al inicio
-              </Button>
+                    ],
+                  });
+                }}
+                onApprove={(data, actions) => {
+                  // Verificación de si actions.order está definido
+                  if (actions.order) {
+                    return actions.order.capture().then((details) => {
+                      const payerName = details.payer?.name?.given_name || "Desconocido";
+                      alert("Transaction completed by " + payerName);
+                      // Lógica de éxito aquí
+                    });
+                  } else {
+                    console.error("Order not defined");
+                    // Retorna un Promise rechazado si `actions.order` no está definido
+                    return Promise.reject("Order not found");
+                  }
+                }}
+              />
             </div>
-          )}
-        </div>
-      </div>
-    </PayPalScriptProvider>
+          </div>
+        </PayPalScriptProvider>
+      </SignedIn>
+
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </>
   );
 }

@@ -23,20 +23,7 @@ export default function EquiposPage() {
             className="rounded-full"
           />
         </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1 bg-white rounded-full px-4 py-1 shadow">
-            <span className="text-gray-800">0.00</span>
-            <Button variant="ghost" size="icon" className="h-8 w-8">
-              <Image src="/placeholder.svg" alt="Wallet" width={24} height={24} className="opacity-70" />
-            </Button>
-          </div>
-          <Button variant="ghost" size="icon" className="relative">
-            <Image src="/placeholder.svg" alt="Messages" width={24} height={24} className="opacity-70" />
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
-              4
-            </span>
-          </Button>
-        </div>
+        
       </header>
 
       <main className="p-4 space-y-6">

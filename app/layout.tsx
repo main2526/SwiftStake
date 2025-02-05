@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Onest } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+} from "@clerk/nextjs";
 
-const onest = Onest({ subsets: ["latin"] ,  weight : ['400']});
+const onest = Onest({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "SwiftStake",
@@ -19,11 +24,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${onest.className} overflow-hidden flex items-center h-screen justify-center `}
+          className={`${onest.className} overflow-auto flex items-center h-screen justify-center`}
         >
-          <SignedOut></SignedOut>
-          <SignedIn></SignedIn>
-          <div className="w-full max-w-md max-h-[40rem] bg-gray-50 shadow-lg rounded-lg overflow-y-scroll  ">
+          <div className="w-full max-w-md max-h-[40rem] bg-gray-50 shadow-lg rounded-lg overflow-y-scroll">
             {children}
           </div>
         </body>
