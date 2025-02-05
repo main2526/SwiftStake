@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Calendar, ChevronDown, Copy } from "lucide-react";
 import Image from "next/image";
