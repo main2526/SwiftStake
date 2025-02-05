@@ -8,8 +8,10 @@ export default function PayPalPage() {
   const router = useRouter();
   const [paymentCompleted, setPaymentCompleted] = useState(false);
 
+  const clientId = "AWnU2vMsWJunheeBu-bX9ulV9ZCm9YGupyK24El1BV2pbgzSuYGN7dyt9aURl42DBwNbFbzdQT7KGy-R"; // Reemplaza este valor con tu propio clientId
+
   return (
-    <PayPalScriptProvider options={{ "client-id": "AWnU2vMsWJunheeBu-bX9ulV9ZCm9YGupyK24El1BV2pbgzSuYGN7dyt9aURl42DBwNbFbzdQT7KGy-R" }}>
+    <PayPalScriptProvider options={{ clientId }}>
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4">
         <h1 className="text-xl font-bold mb-4">Pago con PayPal</h1>
         <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg text-center">
