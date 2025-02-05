@@ -59,7 +59,7 @@ export default function EquiposPage() {
               <span className="text-sm text-gray-500">Ganancias de ayer</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-xl font-bold text-[#40E0D0]">-1751311.56</span>
+              <span className="text-xl font-bold text-[#40E0D0]">0</span>
               <span className="text-xl font-bold">0</span>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function EquiposPage() {
         <div className="grid grid-cols-2 gap-4">
           <Card className="p-4 bg-gradient-to-br from-pink-400 to-pink-500 text-white">
             <p className="text-sm mb-2">Reembolso de comisión</p>
-            <p className="text-xl font-bold">17522.3</p>
+            <p className="text-xl font-bold">0</p>
           </Card>
 
           <Card className="p-4 bg-gradient-to-br from-blue-400 to-blue-500 text-white">

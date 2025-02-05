@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.10.3",
+    "@paypal/react-paypal-js": "^8.8.1",
     "@radix-ui/react-select": "^2.1.5",
     "@radix-ui/react-slot": "^1.1.1",
     "class-variance-authority": "^0.7.1",
@@ -19,6 +20,9 @@
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
+    "stripe": "^17.6.0",
     "swiper": "^11.2.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
