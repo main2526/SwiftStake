@@ -13,6 +13,7 @@ const onest = Onest({ subsets: ["latin"], weight: ["400"] });
 export const metadata: Metadata = {
   title: "SwiftStake",
   description: "Sports betting and events platform",
+  icons : '/ac-milan.png'
 };
 
 export default function RootLayout({

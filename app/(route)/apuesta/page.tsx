@@ -153,7 +153,7 @@ export default function MiApuestaPage() {
                   </div>
                 </div>
                 <div className="flex justify-between items-center mt-2 text-xs text-gray-500">
-                  <span>Descuento limitado 75% {formatTime(bet.discountTime)}</span>
+                  <span>Descuento limitado 50% {formatTime(bet.discountTime)}</span>
                 </div>
                 <div className="flex justify-center gap-8 mt-2 text-sm">
                   <div className="w-full">
