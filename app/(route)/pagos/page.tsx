@@ -15,13 +15,13 @@ export default function PagosPage() {
         </Link>
       </Card>
   
-      <Card className="p-6 space-y-4 w-full max-w-md text-center">
+      <Card className="p-6 space-y-4 w-full  max-w-md text-center">
         <Link href="/pagos" className="cursor-not-allowed">
           <Button disabled className="w-full cursor-not-allowed">Stripe (Tarjeta de crédito) proximamente...</Button>
         </Link>
       </Card>
 
-      <Card className="p-6 space-y-4 w-full max-w-md text-center">
+      <Card className="p-6 space-y-4  my-2 w-full max-w-md text-center">
         <Link href="/apuesta" >
           <Button  variant="destructive" className="w-full"> Pagina de Apuestas </Button>
         </Link>
